@@ -16,6 +16,8 @@ app = dash.Dash(
     external_stylesheets=["https://codepen.io/chriddyp/pen/bWLwgP.css"]
 )
 
+server = app.server
+
 app.layout = html.Div([
     dcc.Markdown("""## Home Run Derby: HRs by Distance, Exit Velocity, and Launch Angle"""),
     dcc.Graph(
