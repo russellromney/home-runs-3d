@@ -5,7 +5,7 @@ import dash_html_components as html
 import dash_renderer
 import pandas as pd
 
-df = pd.read_csv('/Users/rromney/Desktop/home run data.csv')
+df = pd.read_csv('home run data.csv')
 x = df["Player"]
 y = df["Distance (Ft.)"]
 z = df["Exit Velocity (MPH)"]
