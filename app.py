@@ -7,9 +7,9 @@ import pandas as pd
 
 df = pd.read_csv('home run data.csv')
 x = df["Player"]
-y = df["Distance (Ft.)"]
+y = df["Launch Angle"]
 z = df["Exit Velocity (MPH)"]
-rounds = df["Launch Angle"]
+rounds = df["Distance (Ft.)"]
 
 app = dash.Dash(
     __name__,
@@ -19,7 +19,11 @@ app = dash.Dash(
 server = app.server
 
 app.layout = html.Div([
-    dcc.Markdown("""## Home Run Derby: HRs by Distance, Exit Velocity, and Launch Angle"""),
+    dcc.Markdown("""
+## Home Run Derby: HRs by Distance, Exit Velocity, and Launch Angle
+
+##### The color represents the distance. darker red = longer, lighter color = shorter.
+"""),
     dcc.Graph(
        figure = go.Figure(
             data = [
@@ -39,8 +43,8 @@ app.layout = html.Div([
             layout = go.Layout(
                 height=900,    
                 scene=dict(
-                    xaxis=dict(title="Launch Angle"),
-                    yaxis=dict(title="Distance"),
+                    yaxis=dict(title="Launch Angle"),
+                    zaxis=dict(title="Exit Velocity")
                 )
             )
        ),
